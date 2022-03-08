@@ -229,36 +229,34 @@ export const getAdjacentPosts = async (createdAt, slug) => {
 
 export const getCategoryPost = async (slug) => {
   const query = gql`
-    query GetCategoryPost($slug: String!) {
-      postsConnection(where: {slug: $slug}) {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredimage {
+  query GetCategoryPost($slug: String!) {
+    postsConnection(where: {categories_some: {slug: $slug}}) {
+      edges {
+        cursor
+        node {
+          author {
+            bio
+            name
+            id
+            photo {
               url
             }
-            categories {
-              ... on Category {
-                name
-                slug
-              }
-            }
+          }
+          createdAt
+          slug
+          title
+          excerpt
+          featuredimage {
+            url
+          }
+          categories {
+            name
+            slug
           }
         }
       }
     }
+  }
   `;
 
   const result = await request(graphqlAPI, query, { slug });

@@ -62,3 +62,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.responsive-youtube {
+  overflow:hidden; 
+  padding-bottom: 56.25%; 
+  position: relative; 
+  min-height: 320px;
+}
+
+.responsive-youtube iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width: 100%;
+  position: absolute;
+}

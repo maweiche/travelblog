@@ -201,7 +201,7 @@ export const getAdjacentPosts = async (createdAt, slug) => {
         where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
       ) {
         title
-        featuredImage {
+        featuredimage {
           url
         }
         createdAt

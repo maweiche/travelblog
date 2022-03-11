@@ -15,7 +15,7 @@ const Categories = () => {
         <h3 className='text-xl mb-8 font-semibold border-b pb-4'>
           Quick Clicks
         </h3>
-        {categories.map((category) => (
+        {categories.slice(0).reverse().map((category) => (
           <Link key={category.slug} href={`/category/${category.slug}`}>
             <span className='cursor-pointer block pb-3'>
               {category.name}

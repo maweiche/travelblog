@@ -28,7 +28,7 @@ const PostWidget = ({categories, slug }) => {
         {relatedPosts.map((post, index) => (
           <div key={index} className='flex items-center w-full mb-4'>
             <div className='w-16 flex-none'>
-              <Image 
+              <img 
                 alt={post.title}
                 height='60px'
                 width='60px'

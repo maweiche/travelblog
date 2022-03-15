@@ -1,8 +1,29 @@
 import React from 'react';
 import Image from 'next/image';
 import moment from 'moment';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const PostDetail = ({ post }) => {
+  const content = [
+    {
+      type: 'embed',
+      nodeId: 'custom_post_id',
+      children: [
+        {
+          text: '',
+        },
+      ],
+      nodeType: 'Post',
+    },
+  ];
+  
+  const references = [
+    {
+      id: 'custom_post_id',
+      
+    },
+  ];
+  
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -29,7 +50,7 @@ const PostDetail = ({ post }) => {
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
-          <Image
+          <img
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -46,12 +67,12 @@ const PostDetail = ({ post }) => {
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="relative overflow-hidden shadow-md mb-6">
-          <Image src={post.featuredimage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+          <img src={post.featuredimage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <Image
+              <img
                 alt={post.author.name}
                 height="30px"
                 width="30px"
@@ -68,11 +89,29 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+          <RichText
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
+          />
+          {/* <RichText
+            content={content}
+            references={references}
+            renderers={{
+              embed: {
+                Post: ({ title, nodeId }) => {
+                  return (
+                    <div className="post">
+                      <h3>{title}</h3>
+                      <p>{nodeId}</p>
+                    </div>
+                  );
+                },
+              },
+            }}
+          /> */}
         </div>
       </div>
 

@@ -62,6 +62,20 @@ export const getPostDetails = async (slug) => {
         slug
         content {
           raw
+          json
+          references {
+            ... on Asset {
+              id
+              url
+              mimeType
+            }
+            # Your post query
+            ... on Post {
+              id # required
+              title
+              slug
+            }
+          }
         }
         categories {
           ... on Category {

@@ -4,26 +4,8 @@ import moment from 'moment';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const PostDetail = ({ post }) => {
-  const content = [
-    {
-      type: 'embed',
-      nodeId: 'custom_post_id',
-      children: [
-        {
-          text: '',
-        },
-      ],
-      nodeType: 'Post',
-    },
-  ];
   
-  const references = [
-    {
-      id: 'custom_post_id',
-      
-    },
-  ];
-  
+
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -88,30 +70,14 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
+          <div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          <RichText
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
-          />
-          {/* <RichText
-            content={content}
-            references={references}
-            renderers={{
-              embed: {
-                Post: ({ title, nodeId }) => {
-                  return (
-                    <div className="post">
-                      <h3>{title}</h3>
-                      <p>{nodeId}</p>
-                    </div>
-                  );
-                },
-              },
-            }}
-          /> */}
+          </div>
         </div>
       </div>
 

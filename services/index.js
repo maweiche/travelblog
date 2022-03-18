@@ -61,6 +61,7 @@ export const getPostDetails = async (slug) => {
         createdAt
         slug
         content {
+          html
           raw
           json
           references {
@@ -71,7 +72,7 @@ export const getPostDetails = async (slug) => {
             }
             # Your post query
             ... on Post {
-              id # required
+              id
               title
               slug
             }

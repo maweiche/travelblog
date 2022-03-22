@@ -13,7 +13,8 @@ const PostCard = ({ post }) => {
         <img 
           src={post.featuredimage.url}
           alt={post.title}
-          className='object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'
+          className='absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'
+          
         />
       </div>
       <h1 className='trasition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>

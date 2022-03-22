@@ -24,7 +24,7 @@ const PostDetail = ({ post }) => {
       }
       
       if (obj.type === 'link') {
-        modifiedText = (<a className='post-link' key={index} href={obj.href} target='_blank' rel='noreferrer'> {obj.rel} </a>);
+        modifiedText = (<a className='post-link' key={index} href={obj.href} target='_blank' rel='noreferrer'>{obj.rel} </a>);
       }
     }
 

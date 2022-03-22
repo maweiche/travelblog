@@ -24,29 +24,15 @@ const PostDetail = ({ post }) => {
       }
       
       if (obj.type === 'link') {
-        modifiedText = (<a className='' key={index} href={obj.href}> {obj.rel} </a>);
+        modifiedText = (<a className='post-link' key={index} href={obj.href} target='_blank' rel='noreferrer'> {obj.rel} </a>);
       }
     }
 
-    // const paragraphs = document.querySelectorAll('p');
-    // Array.prototype.forEach.call(divs, function (item) {
-    //   // Individual access to element:
-    //   const elem = item;
-    // });
-
     switch (type) {
+      case 'heading-two':
+        return <h2 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h2>;
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-      // case 'obj.type === link':
-      //     return (
-      //     <Link
-      //       key={index}
-      //       href={obj.href}
-      //       rel={obj.rel}
-      //       title={obj.title}
-      //     >{modifiedText.map((obj, i) => <React.Fragment key={i}>{obj.href}</React.Fragment>)}
-      //     </Link>
-      //     );
       case 'paragraph':
         return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':

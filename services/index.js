@@ -61,22 +61,11 @@ export const getPostDetails = async (slug) => {
         createdAt
         slug
         content {
-          html
           raw
           json
-          references {
-            ... on Asset {
-              id
-              url
-              mimeType
-            }
-            # Your post query
-            ... on Post {
-              id
-              title
-              slug
-            }
-          }
+          html
+          markdown
+          text
         }
         categories {
           ... on Category {

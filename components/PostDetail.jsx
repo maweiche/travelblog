@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import moment from 'moment';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
@@ -21,11 +22,31 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = (<u key={index}>{text}</u>);
       }
+      
+      if (obj.type === 'link') {
+        modifiedText = (<a className='' key={index} href={obj.href}> {obj.rel} </a>);
+      }
     }
+
+    // const paragraphs = document.querySelectorAll('p');
+    // Array.prototype.forEach.call(divs, function (item) {
+    //   // Individual access to element:
+    //   const elem = item;
+    // });
 
     switch (type) {
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+      // case 'obj.type === link':
+      //     return (
+      //     <Link
+      //       key={index}
+      //       href={obj.href}
+      //       rel={obj.rel}
+      //       title={obj.title}
+      //     >{modifiedText.map((obj, i) => <React.Fragment key={i}>{obj.href}</React.Fragment>)}
+      //     </Link>
+      //     );
       case 'paragraph':
         return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
@@ -40,6 +61,7 @@ const PostDetail = ({ post }) => {
             src={obj.src}
           />
         );
+      
       default:
         return modifiedText;
     }
@@ -70,14 +92,16 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <div>
+          
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+          {console.log(post.content.raw.children)}
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
-          </div>
+          
+          
         </div>
       </div>
 

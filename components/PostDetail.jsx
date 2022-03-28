@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+// import Image from 'next/image';
+// import Link from 'next/link';
 import moment from 'moment';
-import { RichText } from '@graphcms/rich-text-react-renderer';
+// import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const PostDetail = ({ post }) => {
   

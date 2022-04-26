@@ -11,4 +11,3 @@ export { default as FeaturedPostCard } from './FeaturedPostCard';
 export { default as FeaturedVideoCard } from './FeaturedVideoCard';
 export { default as Loader } from './Loader';
 export { default as AdjacentPostCard } from './AdjacentPostCard';
-export { default as Timeline } from './Timeline';

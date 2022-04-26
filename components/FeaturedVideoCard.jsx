@@ -4,7 +4,7 @@ import React from 'react';
 const FeaturedVideoCard = () => (
     <div className='responsive-youtube items-center justify-center bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-2 items-center justify-center'>
     
-   <iframe src="https://www.youtube.com/embed/BH7id9E-2SM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+   <iframe src="https://www.youtube.com/embed/B0eVSG3fTYw" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
   </div>
 );

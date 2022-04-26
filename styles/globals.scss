@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
+
 html,
 body {
   padding: 0;
@@ -81,4 +82,54 @@ a {
   height:100%;
   width: 100%;
   position: absolute;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.timeline-container::after{
+  background-color: red;
+  content: '';
+  position: absolute;
+  left: calc(50% - 2px);
+  width: 4px;
+  height: 100%;
+  max-height: fit-content;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  margin: 10px 0;
+  width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-right: 0px;
+  padding-left: 30px;
+}
+
+.timeline-item-content{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 15px;
+  max-width: 70%;
+  opacity: .8;
+  border-radius: 5px;
+  max-width: 70%;
+  width: 400px;
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content{
+  align-items: flex-start;
+  text-align: left;
+
 }

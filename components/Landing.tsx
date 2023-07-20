@@ -22,7 +22,7 @@ const Landing = () => {
         // if they click submit, then handleEmailSignup
 
         return (
-            <div className="flex flex-col items-center justify-center h-screen w-screen bg-grey bg-opacity-80 rounded-full">
+            <div className="flex flex-col fade-in items-center justify-center h-screen w-screen bg-grey bg-opacity-80 rounded-full">
                 {/* x button to setShowEmailSignup false */}
                 
                 
@@ -53,6 +53,21 @@ const Landing = () => {
                             Submit
                         </button>
                     </form>
+                </div>
+            </div>
+        )
+    }
+
+    const renderScroll = () => {
+        return (
+            <div
+                className="fade-in absolute bottom-0 w-full flex flex-col items-center"
+            >
+                <p className="text-white mb-5 px-4 text-xl text-center">Scroll down for more</p>
+                <div className="arrow-down animate-bounce">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-12 h-12">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
                 </div>
             </div>
         )
@@ -108,16 +123,7 @@ const Landing = () => {
                     
                 </p>
                 {showEmailSignup && renderEmailSignup()}
-                <div
-                    className="absolute bottom-0 w-full flex flex-col items-center"
-                >
-                    <p className="text-white mb-5 px-4 text-xl text-center">Scroll down for more</p>
-                    <div className="arrow-down animate-bounce">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-12 h-12">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </div>
-                </div>
+                {showScroll && renderScroll()}
             </div>
             <ToastContainer />
         </div>

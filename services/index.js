@@ -267,3 +267,31 @@ export const getCategoryPost = async (slug) => {
 
   return result.postsConnection.edges;
 };
+
+
+export const searchForPost = async (req) => {
+  console.log('incoming req', req.body.searchTerm);
+  const query = gql`
+    query SearchForPost($searchTerm: String!) {
+      posts(where: {excerpt_contains: $searchTerm}) {
+        title
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        slug
+        excerpt
+        featuredimage {
+          url
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, {
+    searchTerm: req.body.searchTerm,
+  });
+
+  return result.posts;
+}

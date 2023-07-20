@@ -1,11 +1,19 @@
-import React, { children } from 'react'
+import React, { children, useState, useEffect } from 'react'
 import { Header } from './'
 
 const Layout = ({children}) => {
+  const [showNav, setShowNav] = useState(false)
+
+  useEffect(() => {
+    
+    if(window){
+      window.location.pathname === '/' ? setShowNav(false) : setShowNav(true)
+    }
+  },[])
   return (
     <>
-        <Header />
-        {children}
+      {showNav && <Header />}
+      {children}
     </>
   )
 }

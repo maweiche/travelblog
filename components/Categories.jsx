@@ -16,12 +16,13 @@ const Categories = () => {
           Quick Clicks
         </h3>
         {categories.slice(0).reverse().map((category) => (
-          <Link key={category.slug} href={`/category/${category.slug}`} passHref>
-            <span className='cursor-pointer block pb-3'>
-              {category.name}
-            </span>
-          </Link>
-          
+          category.name != 'Support' && (
+            <Link key={category.slug} href={`/category/${category.slug}`} passHref>
+              <span className='cursor-pointer block pb-3'>
+                {category.name}
+              </span>
+            </Link>
+          )
         ))}
     </div>
   )

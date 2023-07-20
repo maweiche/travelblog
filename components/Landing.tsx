@@ -93,7 +93,7 @@ const Landing = () => {
                     <p className="text-white mb-5 px-4 text-xl text-center">Scroll down for more</p>
                     <div className="arrow-down animate-bounce">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-12 h-12">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </div>
                 </div>

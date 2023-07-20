@@ -20,7 +20,10 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div 
+      className="container mx-auto px-10 mb-8"
+      
+    >
       <div className=" w-full border-blue-400 py-8 flex flex-col md:flex-row items-center justify-between">
         <div className="md:float-left md:contents flex flex-row items-center justify-center md:justify-start w-full">
           {

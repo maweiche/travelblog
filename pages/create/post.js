@@ -44,11 +44,11 @@ const CreatePost = () => {
       
     const SlateRichTextEditor = () => (
         <SlateEditor plugins={plugins}>
-            <SlateToolbar>
+            {/* <SlateToolbar>
                 <BoldButtonBar />
             </SlateToolbar>
         
-            <SlateContent />
+            <SlateContent /> */}
         </SlateEditor>
         // <div>hey</div>
     )

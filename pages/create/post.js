@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { BoldPlugin, BoldButtonBar } from '@slate-editor/bold-plugin'
-import { SlateEditor } from '../../components/SlateEditor/Editor';
+// import { BoldPlugin, BoldButtonBar } from '@slate-editor/bold-plugin'
+// import { SlateEditor } from '../../components/SlateEditor/Editor';
 import { useRouter } from 'next/router';
 
 
@@ -38,18 +38,18 @@ const CreatePost = () => {
         }
     };
 
-    const plugins = [
-        BoldPlugin()
-      ]
+    // const plugins = [
+    //     BoldPlugin()
+    //   ]
       
     const SlateRichTextEditor = () => (
-        <SlateEditor plugins={plugins}>
+        // <SlateEditor plugins={plugins}>
             {/* <SlateToolbar>
                 <BoldButtonBar />
             </SlateToolbar>
         
             <SlateContent /> */}
-        </SlateEditor>
+        /* </SlateEditor> */
         // <div>hey</div>
     )
 

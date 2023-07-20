@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Landing = () => {
     const [showEmailSignup, setShowEmailSignup] = useState(false);
+    const [showScroll, setShowScroll] = useState(false);
     const handleEmailSignup = async (e: any) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -61,7 +62,27 @@ const Landing = () => {
         setTimeout(() => {
             setShowEmailSignup(true);
         }, 5000);
+
+        setTimeout(() => {
+            setShowScroll(true);
+        }, 1000);
+
+        // if window starts to scroll, then setShowEmailSignup false, setShowScroll false
+        window.addEventListener('scroll', () => {
+            setShowEmailSignup(false);
+            setShowScroll(false);
+        }
+        );
+
+        return () => {
+            window.removeEventListener('scroll', () => {
+                setShowEmailSignup(false);
+                setShowScroll(false);
+            });
+        }
     }, []);
+
+    
     
     return (
         <div 

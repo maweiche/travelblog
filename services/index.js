@@ -295,3 +295,35 @@ export const searchForPost = async (req) => {
 
   return result.posts;
 }
+
+export const addEmailAddress = async (email) => {
+  console.log('email', email);
+  // mutation CreateEmail {
+  //   createEmail(data: {address: "a"}) {
+  //     id
+  //   }
+  // }
+  
+  const query = gql`
+    mutation AddEmailAddress($email: String!) {
+      createEmail(data: {address: $email}) {
+        id
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { email });
+
+  // publish email
+  const query2 = gql`
+    mutation PublishEmail($id: ID!) {
+      publishEmail(where: {id: $id}, to: PUBLISHED) {
+        address
+      }
+    }
+  `;
+
+  const result2 = await request(graphqlAPI, query2, { id: result.createEmail.id });
+
+  return result.createEmail;
+}

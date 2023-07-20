@@ -52,12 +52,15 @@ const FeaturedPosts = () => {
   );
 
   return (
-    <div className="mb-8"
-      //lazy load the div with an animation upon scroll
-      data-aos="fade-up"
-      data-aos-anchor-placement="top-bottom"
-      data-aos-duration="1000"
-
+    <div className="
+      mb-8
+      transition
+      duration-500
+      ease-in-out
+      transform
+      hover:-translate-y-1
+      hover:scale-105
+    "
     >
       <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="px-4">
         {dataLoaded && featuredPosts.map((post, index) => (

@@ -10,7 +10,10 @@ const Author = ({ author }) => {
           unoptimized
           height='100px'
           width='100px'
-          className='align-middle rounded-full'
+          className='
+            align-middle
+            rounded-full
+          '
           src={author.photo.url}
         />
         </div>

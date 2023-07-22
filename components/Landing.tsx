@@ -100,17 +100,17 @@ const Landing = () => {
     
     
     return (
-        <div 
-            className="bg-cover bg-center h-screen w-screen mb-8 bg-fixed bg-no-repeat bg-main-img"       
-        >
-            <Header />
+        <div className="bg-cover bg-center h-screen w-screen mb-8 bg-fixed bg-no-repeat bg-main-img"       >
             <div className="flex flex-col items-center  h-screen bg-grey bg-opacity-50">
-                <h1 className="text-6xl font-bold text-white mt-36 mb-8">
+                <h1 className="header-text text-6xl font-bold text-white mt-36 mb-8 
+                text-center bg-gray-500 bg-opacity-20 px-8 rounded-full
+                glow
+                ">
                     Becca & Matt
                 </h1>
-                <p className="text-white text-xl">
-                    <Link href="/category/travel">
-                        <a className="hover:underline">Travel</a>
+                <p className="text-white text-xl bg-gray-500 bg-opacity-50 px-8 rounded-full">
+                    <Link href="/category/travel" >
+                        <a className="text-white text-xl hover:underline">Travel</a>
                     </Link>
                     {" "} - {" "}
                     <Link href="/category/tech">

@@ -1,4 +1,4 @@
-import { PostCard, Categories, PostWidget, FeaturedVideoCard, Landing } from '../components'
+import { PostCard, Categories, PostWidget, FeaturedVideoCard, Landing, Header } from '../components'
 import { getPosts } from '../services'
 import { FeaturedPosts } from '../sections';
 

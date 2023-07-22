@@ -4,7 +4,6 @@ import { getCategories } from '../services';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
-  const [showHomepage, setShowHomepage] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -13,37 +12,34 @@ const Header = () => {
     });
   }, []);
 
-  useEffect(() => {
-    if (window) {
-      window.location.pathname === '/' ? setShowHomepage(false) : setShowHomepage(true);
-    }
-  }, []);
+
 
   return (
     <div 
-      className="container mx-auto px-10 mb-8"
-      
+      className="
+         h-16 flex flex-row items-center
+        py-2 px-4 md:px-8
+        w-full border-blue-400 flex flex-col md:flex-row items-center justify-between
+      "
+      style={{
+        backgroundImage: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
+        width: '100vw',
+        height: 'auto',
+      }}
     >
-      <div className=" w-full border-blue-400 py-8 flex flex-col md:flex-row items-center justify-between">
-        <div className="md:float-left md:contents flex flex-row items-center justify-center md:justify-start w-full">
-          {
-            showHomepage &&
-            <Link href="/">
-              <span 
-                className="cursor-pointer font-bold text-4xl text-white hover:text-gray-300 transition duration-300 ease-in-out"
-              >
-                Becca and Matt
-              </span>
-            </Link>
-          }
-          
-        </div>
-        <div className="hidden md:float-left md:contents">
+        
+        
           {/* {categories.map((category, index) => (
             category.name != 'Support' && (
             <Link key={index} href={`/category/${category.slug}`}><span className="rounded-full px-5 bg-yellow-50 border-yellow-400 md:float-right mt-2 align-middle text-yellow-500 ml-4 font-semibold cursor-pointer">{category.name}</span></Link>
             )))} */}  
-
+            <Link href="/">
+                <span 
+                  className="header-text animate-glow cursor-pointer font-bold text-4xl text-white hover:text-gray-300 transition duration-300 ease-in-out"
+                >
+                  Becca and Matt
+                </span>
+            </Link>
 
             {/* search bar with magnify glass icon */}
             {/* <div className="flex flex-row items-center justify-center md:justify-end w-full"> */}
@@ -73,10 +69,9 @@ const Header = () => {
             {/* just the category.name === About */}
             {categories.map((category, index) => (
               category.name === 'About' && (
-                <Link key={index} href={`/category/${category.slug}`}><span className="rounded-full px-5 bg-yellow-50 border-yellow-400 md:float-right mt-2 align-middle text-yellow-500 ml-4 font-semibold cursor-pointer">{category.name}</span></Link>
+                <Link key={index} href={`/category/${category.slug}`}><span className="rounded-full px-5 button md:float-right mt-2 align-middle text-yellow-500 ml-4 font-semibold cursor-pointer">{category.name}</span></Link>
               )))}
-        </div>
-      </div>
+      
     </div>
   );
 };

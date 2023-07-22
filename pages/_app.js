@@ -2,12 +2,15 @@ import '../styles/globals.scss'
 
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { Layout } from '../components'
+import { Layout, Header } from '../components'
 
 
 function MyApp({ Component, pageProps }) {
   return (
-      <>
+      <div
+        className="bg-white dark:bg-gray-900 w-full"
+
+      >
         <Head>
           {/* create Head for Becca & Matt, a travel, tech and nutrition blog updated weekly. Provide twitter, facebook, standard google search and iphone link meta tags, us bg.png as the image */}
           <title>Becca & Matt</title>
@@ -51,10 +54,11 @@ function MyApp({ Component, pageProps }) {
           <meta name="theme-color" content="#ffffff" />
 
       </Head>
+      <Header />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </div>
 
   )
 }

@@ -212,22 +212,14 @@ a {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px #854B50, 0 0 20px #854B50, 0 0 30px #854B50, 0 0 40px #854B50, 0 0 50px #854B50, 0 0 60px #854B50, 0 0 70px #854B50;
-  }
-  
-  to {
-    text-shadow: 0 0 20px #854B50, 0 0 30px #854B50, 0 0 40px #854B50, 0 0 50px #854B50, 0 0 60px #854B50, 0 0 70px #854B50, 0 0 80px #854B50;
-  }
-}
+    text-shadow: 0 0 10px #618ac8, 0 0 20px #618ac8, 0 0 30px #618ac8, 0 0 40px #618ac8, 0 0 50px #618ac8, 0 0 60px #618ac8, 0 0 70px #618ac8;
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #854B50, 0 0 20px #854B50, 0 0 30px #854B50, 0 0 40px #854B50, 0 0 50px #854B50, 0 0 60px #854B50, 0 0 70px #854B50;
   }
-  
+
   to {
-    text-shadow: 0 0 20px #854B50, 0 0 30px #854B50, 0 0 40px #854B50, 0 0 50px #854B50, 0 0 60px #854B50, 0 0 70px #854B50, 0 0 80px #854B50;
+    text-shadow: 0 0 20px #618ac8, 0 0 30px #618ac8, 0 0 40px #618ac8, 0 0 50px #618ac8, 0 0 60px #618ac8, 0 0 70px #618ac8, 0 0 80px #618ac8;  
   }
+
 }
 
 // #D8B1A0 //dusty rose

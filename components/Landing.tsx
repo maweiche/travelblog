@@ -18,9 +18,6 @@ const Landing = () => {
     }
 
     const renderEmailSignup = () => {
-        // create a pop up modal that displays after 5 seconds to sign up for email list
-        // if they click submit, then handleEmailSignup
-
         return (
             <div className="flex flex-col fade-in items-center justify-center h-screen w-screen bg-grey bg-opacity-80 rounded-full">
                 {/* x button to setShowEmailSignup false */}

@@ -2,7 +2,7 @@ import React from 'react';
 // import Image from 'next/image';
 // import Link from 'next/link';
 import moment from 'moment';
-// import { RichText } from '@graphcms/rich-text-react-renderer';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const PostDetail = ({ post }) => {
   
@@ -84,12 +84,28 @@ const PostDetail = ({ post }) => {
           </div>
           
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          {/* {console.log(post.content.raw.children)} */}
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-
-            return getContentFragment(index, children, typeObj, typeObj.type);
-          })}
+          {console.log(post.content.raw.children)}
+          {/* <RichText
+                content={content}
+                renderers={{
+                  h1: ({ children }) => <h1 className="text-white">{children}</h1>,
+                  bold: ({ children }) => <strong>{children}</strong>,
+                }}
+              /> */}
+          <RichText
+            content={post.content.raw.children}
+            renderers={{
+              h1: ({ children }) => <h1 className="text-black">{children}</h1>,
+              h2: ({ children }) => <h2 className="text-black">{children}</h2>,
+              h3: ({ children }) => <h3 className="text-black">{children}</h3>,
+              h4: ({ children }) => <h4 className="text-black">{children}</h4>,
+              p: ({ children }) => <p className="text-black mb-8">{children}</p>,
+              img: ({ children }) => <img className="text-black">{children}</img>,
+              a: ({ href, children }) => <a style={{color: 'blue'}} href={`${href}`}>{children}</a>,
+              paragraph: ({ children }) => <p className="text-black">{children}</p>,
+              // a: ({ children }) => <a className="text-white">{children}</a>,
+            }}
+          />
           
           
         </div>
